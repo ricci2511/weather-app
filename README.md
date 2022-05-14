@@ -8,3 +8,4 @@ Features:
 - Display current weather for any given location.
 - Display advanced current weather data like pressure, wind speed...
 - Display daily forecast for any given location.
+- Responsive design.

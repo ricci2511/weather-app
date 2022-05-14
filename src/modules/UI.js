@@ -5,6 +5,14 @@ import {
 
 const isFahrenheit = () => document.querySelector('#switch').checked;
 
+const createPicture = (weatherIcon) => {
+  const weatherPicture = document.querySelector('.weather-picture');
+  weatherPicture.innerHTML = `
+    <source media="(min-width:375px)" srcset="http://openweathermap.org/img/wn/${weatherIcon}@4x.png">
+    <img src="http://openweathermap.org/img/wn/${weatherIcon}@2x.png">
+  `;
+};
+
 const setUpDailyWeatherData = (dailyWeather) => {
   const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const dailyDayValue = document.querySelectorAll('.weekly-day-value');
@@ -27,7 +35,6 @@ const setUpDailyWeatherData = (dailyWeather) => {
 const setUpCurrentWeatherData = (currentWeather) => {
   const locationName = document.querySelector('.location-name');
   const mainDescription = document.querySelector('.main-description');
-  const weatherIcon = document.querySelector('.weather-icon');
   const degrees = document.querySelector('.degrees');
   const feelsLike = document.querySelector('.feels-like-temp');
   const minTemp = document.querySelector('.min-temp');
@@ -40,7 +47,7 @@ const setUpCurrentWeatherData = (currentWeather) => {
 
   locationName.textContent = `${currentWeather.locationName}, ${currentWeather.country}`;
   mainDescription.textContent = currentWeather.weatherDescription.toUpperCase();
-  weatherIcon.src = `https://openweathermap.org/img/wn/${currentWeather.weatherIcon}@2x.png`;
+  createPicture(currentWeather.weatherIcon);
   degrees.textContent = `${currentWeather.temp}°`;
   feelsLike.textContent = `${currentWeather.feelsLike}°`;
   minTemp.textContent = `${currentWeather.tempMin}°`;

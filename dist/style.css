@@ -194,7 +194,7 @@ nav h1 {
     border-radius: .35rem;
     gap: 1rem;
     margin: 0 auto;
-    width: min(90%, 30rem);
+    width: min(90%, 36rem);
     position: relative;
 }
 
@@ -218,6 +218,11 @@ nav h1 {
     flex-basis: 100%;
 }
 
+.basic-data > .location-data > picture {
+    display: flex;
+    justify-content: center;
+}
+
 .basic-data > .location-weather-description {
     font-size: 1.2rem;
     font-weight: 600;
@@ -225,20 +230,9 @@ nav h1 {
 }
 
 .degrees {
-    font-size: 2.85rem;
-    font-weight: 300;
+    font-size: 2.5rem;
     position: relative;
 }
-
-/*
-.degrees::after {
-    content: "°C";
-    font-size: 35%;
-    font-weight: 600;
-    position: absolute;
-    top: .5rem;
-}
-*/
 
 /* ADVANCED DATA */
 .advanced-data {
@@ -323,6 +317,10 @@ nav h1 {
 @media (min-width: 481px) {
     .degrees {
         font-size: 4rem;
+    }
+
+    .basic-data > .location-weather-description {
+        font-size: 1.5rem;
     }
 
     .advanced-data > ul {

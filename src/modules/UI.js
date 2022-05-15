@@ -8,8 +8,8 @@ const isFahrenheit = () => document.querySelector('#switch').checked;
 const createPicture = (weatherIcon) => {
   const weatherPicture = document.querySelector('.weather-picture');
   weatherPicture.innerHTML = `
-    <source media="(min-width:375px)" srcset="http://openweathermap.org/img/wn/${weatherIcon}@4x.png">
-    <img src="http://openweathermap.org/img/wn/${weatherIcon}@2x.png">
+    <source media="(min-width:375px)" srcset="https://openweathermap.org/img/wn/${weatherIcon}@4x.png">
+    <img src="https://openweathermap.org/img/wn/${weatherIcon}@2x.png">
   `;
 };
 
@@ -24,7 +24,7 @@ const setUpDailyWeatherData = (dailyWeather) => {
 
   dailyWeather.forEach((day, i) => {
     dailyDayValue[i].textContent = daysOfWeek[day.dayOfWeek];
-    dailyWeatherIcon[i].src = `http://openweathermap.org/img/wn/${day.weatherIcon}.png`;
+    dailyWeatherIcon[i].src = `https://openweathermap.org/img/wn/${day.weatherIcon}.png`;
     dailyHumidityValue[i].textContent = `${day.humidity}%`;
     dailyRainProbabilityValue[i].textContent = `${Math.round(day.rainProbability * 100)}%`;
     dailyHighTempValue[i].textContent = `${Math.round(day.maxTemp)}°/`;

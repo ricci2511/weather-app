@@ -4,6 +4,14 @@ import {
 } from 'date-fns';
 
 const isFahrenheit = () => document.querySelector('#switch').checked;
+const hideMainContent = () => document.querySelector('.container').classList.add('hidden');
+const showMainContent = () => document.querySelector('.container').classList.remove('hidden');
+const hideLoading = () => document.querySelector('.loading').classList.remove('active');
+
+const displayLoading = () => {
+  document.querySelector('.loading').classList.add('active');
+  setTimeout(() => hideLoading(), 5000);
+};
 
 const createPicture = (weatherIcon) => {
   const weatherPicture = document.querySelector('.weather-picture');
@@ -15,10 +23,10 @@ const createPicture = (weatherIcon) => {
 
 const setUpDailyWeatherData = (dailyWeather) => {
   const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  const dailyDayValue = document.querySelectorAll('.weekly-day-value');
-  const dailyWeatherIcon = document.querySelectorAll('.weekly-weather-icon');
-  const dailyHumidityValue = document.querySelectorAll('.weekly-humidity-value');
-  const dailyRainProbabilityValue = document.querySelectorAll('.weekly-rain-probability-value');
+  const dailyDayValue = document.querySelectorAll('.daily-day-value');
+  const dailyWeatherIcon = document.querySelectorAll('.daily-weather-icon');
+  const dailyHumidityValue = document.querySelectorAll('.daily-humidity-value');
+  const dailyRainProbabilityValue = document.querySelectorAll('.daily-rain-probability-value');
   const dailyHighTempValue = document.querySelectorAll('.high-temp-value');
   const dailyLowTempValue = document.querySelectorAll('.low-temp-value');
 
@@ -61,6 +69,10 @@ const setUpCurrentWeatherData = (currentWeather) => {
 
 export {
   isFahrenheit,
+  hideMainContent,
+  showMainContent,
+  hideLoading,
+  displayLoading,
   setUpDailyWeatherData,
   setUpCurrentWeatherData,
 };

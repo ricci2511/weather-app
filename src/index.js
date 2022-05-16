@@ -1,4 +1,8 @@
 import {
+  hideMainContent,
+  showMainContent,
+  hideLoading,
+  displayLoading,
   setUpDailyWeatherData,
   setUpCurrentWeatherData,
 } from './modules/UI';
@@ -12,6 +16,8 @@ import {
 
 const getWeather = async (location = 'Spain') => {
   try {
+    hideMainContent();
+    displayLoading();
     const coords = await getCoordinates(location);
     const forecast = await getForecast(coords.lat, coords.lon);
     forecast.locationName = coords.locationName;
@@ -20,6 +26,8 @@ const getWeather = async (location = 'Spain') => {
     const dailyWeatherObjArr = await proccessDailyWeatherData(forecast);
     setUpCurrentWeatherData(currentWeatherObj);
     setUpDailyWeatherData(dailyWeatherObjArr);
+    hideLoading();
+    showMainContent();
   } catch (err) {
     console.error(err);
   }

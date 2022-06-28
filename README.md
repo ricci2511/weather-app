@@ -2,6 +2,8 @@
 
 Weather app built with OpenWeatherAPI using vanilla JS, HTML and CSS with Webpack.
 
+[Live Demo](https://ricci2511.github.io/weather-app/) :star2:
+
 Features:
 
 - Switch between celsius and fahrenheit values.
